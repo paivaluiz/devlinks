@@ -87,11 +87,17 @@ body * {
   background: var(--switch-bg-color) var(--switch-bg-url) no-repeat center;
   border: 0;
   border-radius: 50%;
+  /* Animations */
+  animation: switch-off 0.2s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--social-color-hover);
 }
 
 .light-mode #switch button {
-  right: 0;
-  left: initial;
+  /* Animations */
+  animation: switch-on 0.2s forwards;
 }
 
 #switch span {
@@ -184,5 +190,23 @@ footer {
 
   .light-mode {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* Animations */
+@keyframes switch-on {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes switch-off {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
